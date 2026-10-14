@@ -1,0 +1,104 @@
+body {
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
+}
+
+.absensi {
+    border: 1px solid black;
+    padding: 15px;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.absensi h2 {
+    font-size: 24px;
+}
+
+table {
+    border: 1px solid gray;
+    margin: auto;
+    font-size: 12px;
+}
+
+table, th, td {
+    border: 1px solid gray;
+}
+
+th, td {
+    padding: 3px;
+    text-align: center;
+}
+
+.form-mahasiswa {
+    width: 540px;
+    max-width: 95%;
+    margin: 25px 5px;
+}
+
+.form-mahasiswa h2 {
+    font-size: 22px;
+}
+
+fieldset {
+    margin-bottom: 8px;
+    border: 2px groove #ddd;
+    padding: 10px;
+}
+
+legend {
+    font-weight: normal;
+}
+
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+.form-table td {
+    border: none;
+    padding: 3px 2px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.col-label {
+    width: 135px;
+}
+
+.col-titik {
+    width: 10px;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 180px;
+    height: 16px;
+}
+
+select {
+    padding: 1px;
+}
+
+textarea {
+    width: 185px;
+    height: 50px;
+    resize: none;
+}
+
+.cb-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+.cb-table td {
+    border: none;
+    padding: 2px 8px 2px 0px;
+    vertical-align: middle;
+}
+
+.tombol {
+    margin-top: 5px;
+}

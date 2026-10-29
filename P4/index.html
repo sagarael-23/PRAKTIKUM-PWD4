@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turun dari Antariksa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero" id="top">
+    <h1>Turun dari<br>Antariksa</h1>
+    <p class="hero-sub">Gulir ke bawah dan lewati lima lapisan atmosfer, dari ruang hampa sampai permukaan Bumi.</p>
+    <span class="hero-hint" aria-hidden="true">gulir</span>
+  </header>
+
+  <main>
+    <section class="layer">
+      <article class="card">
+        <p class="altitude">di atas 700 km</p>
+        <h2>Eksosfer</h2>
+        <p>Lapisan terluar atmosfer. Udaranya sangat tipis, dan atom-atom hidrogen serta helium perlahan lepas ke angkasa. Banyak satelit mengorbit di sini.</p>
+      </article>
+    </section>
+
+    <section class="layer">
+      <article class="card">
+        <p class="altitude">85 sampai 700 km</p>
+        <h2>Termosfer</h2>
+        <p>Suhunya bisa mencapai ribuan derajat, tetapi hampir tidak terasa karena udaranya sangat renggang. Aurora terbentuk di lapisan ini, dan Stasiun Luar Angkasa Internasional melintas di dalamnya.</p>
+      </article>
+    </section>
+
+    <section class="layer">
+      <article class="card">
+        <p class="altitude">50 sampai 85 km</p>
+        <h2>Mesosfer</h2>
+        <p>Di sinilah sebagian besar meteor terbakar sebelum sampai ke tanah. Inilah lapisan terdingin atmosfer, dengan suhu hingga sekitar minus 90 derajat Celsius.</p>
+      </article>
+    </section>
+
+    <section class="layer">
+      <article class="card">
+        <p class="altitude">12 sampai 50 km</p>
+        <h2>Stratosfer</h2>
+        <p>Rumah bagi lapisan ozon yang menyerap sebagian besar sinar ultraviolet Matahari. Pesawat jet tinggi dan balon cuaca sesekali menjangkau bagian bawahnya.</p>
+      </article>
+    </section>
+
+    <section class="layer">
+      <article class="card">
+        <p class="altitude">0 sampai 12 km</p>
+        <h2>Troposfer</h2>
+        <p>Tempat kita hidup. Hampir semua awan, hujan, dan angin terbentuk di lapisan ini. Semakin tinggi kamu naik, semakin dingin dan tipis udaranya.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="ground">
+    <p>Selamat datang kembali di permukaan.</p>
+    <p class="ground-small">Tekan roket di pojok kanan bawah untuk meluncur kembali ke atas.</p>
+  </footer>
+
+  <button class="to-top" id="toTop" type="button" aria-label="Kembali ke atas halaman">
+    <svg class="ring" viewBox="0 0 64 64" aria-hidden="true">
+      <circle class="ring-track" cx="32" cy="32" r="29"></circle>
+      <circle class="ring-bar" id="ringBar" cx="32" cy="32" r="29"></circle>
+    </svg>
+
+    <svg class="rocket" viewBox="0 0 24 24" aria-hidden="true">
+      <path class="flame" d="M10 17.5 12 22l2-4.5z"></path>
+      <path class="body" d="M12 2c3 2.2 4.5 5.4 4.5 9v4.5h-9V11c0-3.6 1.5-6.8 4.5-9z"></path>
+      <path class="fin" d="M7.5 11.5 5 15.5l2.5-.5zM16.5 11.5l2.5 4-2.5-.5z"></path>
+      <circle class="window" cx="12" cy="9.5" r="1.7"></circle>
+    </svg>
+
+    <span class="tip" id="tip">Kembali ke atas</span>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

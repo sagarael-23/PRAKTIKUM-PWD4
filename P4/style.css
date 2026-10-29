@@ -1,0 +1,243 @@
+:root {
+  --space: #060818;
+  --indigo: #1a2468;
+  --sky: #3f78c8;
+  --horizon: #9fd0f2;
+  --ember: #ff7a3d;
+  --glow: #ffd36b;
+  --ink: #f4f6ff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--ink);
+  /* langit berubah dari antariksa ke permukaan seiring scroll */
+  background: linear-gradient(
+    to bottom,
+    var(--space) 0%,
+    var(--indigo) 30%,
+    var(--sky) 65%,
+    var(--horizon) 100%
+  );
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 8vw;
+  position: relative;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 18%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 28% 62%, #fff 50%, transparent 51%),
+    radial-gradient(2px 2px at 44% 30%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 63% 78%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 77% 22%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 90% 55%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 8% 85%, #fff 50%, transparent 51%),
+    radial-gradient(2px 2px at 55% 10%, #cfe0ff 50%, transparent 51%);
+}
+
+.hero h1 {
+  font-family: "Sora", "Segoe UI", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.8rem, 9vw, 6.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.hero-sub {
+  max-width: 34ch;
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  color: #c9d3ff;
+}
+
+.hero-hint {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 8vw;
+  font-family: "Sora", sans-serif;
+  font-size: 0.85rem;
+  color: #aab6ee;
+  padding-bottom: 1.6rem;
+}
+.hero-hint::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px;
+  height: 1.2rem;
+  background: currentColor;
+  animation: drip 1.8s ease-in-out infinite;
+}
+@keyframes drip {
+  0%, 100% { transform: scaleY(0.3); transform-origin: top; opacity: 0.4; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+/* ---------- Lapisan atmosfer ---------- */
+.layer {
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 8vw;
+}
+.layer:nth-child(even) { justify-content: flex-end; }
+
+.card {
+  max-width: 34rem;
+  padding: 2rem 2.2rem;
+  border-radius: 1.4rem;
+  background: rgba(6, 8, 24, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.altitude {
+  font-family: "Sora", sans-serif;
+  font-size: 0.9rem;
+  color: var(--glow);
+  margin-bottom: 0.4rem;
+}
+.card h2 {
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 2.1rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.7rem;
+}
+
+/* ---------- Footer ---------- */
+.ground {
+  padding: 8rem 8vw 7rem;
+  text-align: center;
+  color: #0c2a4d;
+  background: linear-gradient(to bottom, transparent, #5c9a52 70%, #3f7a3a);
+}
+.ground p:first-child {
+  font-family: "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+.ground-small { margin-top: 0.5rem; color: #12331a; }
+
+/* ---------- Tombol back-to-top ---------- */
+.to-top {
+  position: fixed;
+  right: 1.6rem;
+  bottom: 1.6rem;
+  width: 4.2rem;
+  height: 4.2rem;
+  border: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #2b3a9a, #0d1240 75%);
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  z-index: 50;
+
+  /* hidden secara default */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(24px) scale(0.8);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+}
+
+/* muncul setelah scroll > 500px; opacity dikurangi agar tidak mengganggu konten */
+.to-top.show {
+  opacity: 0.55;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* saat hover opacity menjadi 100% */
+.to-top.show:hover,
+.to-top.show:focus-visible {
+  opacity: 1;
+  transform: translateY(-4px) scale(1.06);
+}
+.to-top:focus-visible { outline: 3px solid var(--glow); outline-offset: 3px; }
+
+/* cincin progres scroll */
+.ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.ring circle { fill: none; stroke-width: 3; }
+.ring-track { stroke: rgba(255, 255, 255, 0.15); }
+.ring-bar {
+  stroke: var(--glow);
+  stroke-linecap: round;
+  stroke-dasharray: 182.2;
+  stroke-dashoffset: 182.2;
+}
+
+/* roket */
+.rocket { position: relative; width: 1.9rem; height: 1.9rem; overflow: visible; }
+.rocket .body { fill: #f4f6ff; }
+.rocket .fin { fill: var(--ember); }
+.rocket .window { fill: #3f78c8; }
+.rocket .flame {
+  fill: var(--glow);
+  transform-origin: 12px 17.5px;
+  animation: flicker 0.35s ease-in-out infinite alternate;
+}
+@keyframes flicker {
+  from { transform: scaleY(0.7); }
+  to { transform: scaleY(1.25); }
+}
+
+/* label saat hover */
+.tip {
+  position: absolute;
+  right: calc(100% + 0.8rem);
+  white-space: nowrap;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.6rem;
+  font-family: "Sora", sans-serif;
+  font-size: 0.8rem;
+  background: rgba(6, 8, 24, 0.9);
+  opacity: 0;
+  transform: translateX(8px);
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.to-top:hover .tip,
+.to-top:focus-visible .tip { opacity: 1; transform: translateX(0); }
+
+/* animasi peluncuran saat diklik */
+.to-top.launching .rocket {
+  animation: launch 0.9s cubic-bezier(0.5, 0, 0.9, 0.4) forwards;
+}
+.to-top.launching .flame { animation-duration: 0.08s; }
+@keyframes launch {
+  0% { transform: translateY(0) scale(1); }
+  20% { transform: translateY(4px) scale(1); }
+  100% { transform: translateY(-140px) scale(0.8); opacity: 0; }
+}
+
+@media (max-width: 600px) {
+  .card { padding: 1.5rem; }
+  .to-top { right: 1rem; bottom: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .to-top, .tip { transition: none; }
+  .flame, .hero-hint::after { animation: none; }
+  .to-top.launching .rocket { animation: none; }
+}

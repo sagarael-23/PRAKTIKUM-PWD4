@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --hitam: #111111;
+    --krem: #f3ecd9;
+    --kuning: #ffd23f;
+    --pink: #ff6b9d;
+    --hijau: #7bd88f;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    font-family: "Courier New", Courier, monospace;
+    color: var(--hitam);
+    background-color: var(--krem);
+    /* pola titik-titik seperti kertas */
+    background-image: radial-gradient(var(--hitam) 1px, transparent 1px);
+    background-size: 22px 22px;
+}
+
+/* Kartu utama */
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    padding: 36px 28px 28px;
+    background: #ffffff;
+    border: 4px solid var(--hitam);
+    box-shadow: 10px 10px 0 var(--hitam);
+    transform: rotate(-1.5deg);
+}
+
+/* Stiker miring di pojok */
+.sticker {
+    position: absolute;
+    top: -18px;
+    right: -14px;
+    padding: 6px 12px;
+    font-family: "Arial Black", Impact, sans-serif;
+    font-size: 13px;
+    background: var(--pink);
+    border: 3px solid var(--hitam);
+    box-shadow: 4px 4px 0 var(--hitam);
+    transform: rotate(5deg);
+}
+
+h1 {
+    margin: 0 0 12px;
+    font-family: "Arial Black", Impact, sans-serif;
+    font-size: 46px;
+    line-height: 0.95;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    margin: 0 0 26px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.label {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 2px 8px;
+    font-family: "Arial Black", Impact, sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+    background: var(--hitam);
+}
+
+/* Kolom input */
+#password {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--hitam);
+    background: #ffffff;
+    border: 4px solid var(--hitam);
+    box-shadow: 6px 6px 0 var(--hitam);
+    transition: transform 0.1s, box-shadow 0.1s, background 0.1s;
+}
+
+#password:focus {
+    outline: none;
+    background: var(--kuning);
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 var(--hitam);
+}
+
+/* Baris toggle */
+.toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+/* Switch */
+.switch {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.switch input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.track {
+    position: relative;
+    width: 72px;
+    height: 38px;
+    background: #ffffff;
+    border: 4px solid var(--hitam);
+    box-shadow: 4px 4px 0 var(--hitam);
+    transition: background 0.15s, transform 0.1s, box-shadow 0.1s;
+}
+
+.thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background: var(--hitam);
+    transition: transform 0.15s;
+}
+
+.switch:active .track {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--hitam);
+}
+
+.switch input:checked + .track {
+    background: var(--hijau);
+}
+
+.switch input:checked + .track .thumb {
+    transform: translateX(34px);
+}
+
+.switch input:focus-visible + .track {
+    outline: 4px solid var(--pink);
+    outline-offset: 3px;
+}
+
+.switch-text {
+    font-family: "Arial Black", Impact, sans-serif;
+    font-size: 15px;
+}
+
+/* Lencana status */
+.status {
+    padding: 6px 10px;
+    font-family: "Arial Black", Impact, sans-serif;
+    font-size: 11px;
+    background: var(--kuning);
+    border: 3px solid var(--hitam);
+    transform: rotate(2deg);
+}
+
+.status.terlihat {
+    background: var(--pink);
+}
